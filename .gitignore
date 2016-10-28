@@ -1,2 +1,4 @@
 *.pyc
 __pycache__
+
+viapublica_app/static/uploads

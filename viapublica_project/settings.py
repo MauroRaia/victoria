@@ -131,5 +131,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 APPEND_SLASH= False
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+
 MEDIA_ROOT='./viapublica_app/'
 MEDIA_URL='http://localhost:8000/'
