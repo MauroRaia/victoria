@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'widget_tweaks',
     'viapublica_app.apps.ViapublicaAppConfig'
 ]
 
@@ -129,9 +130,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 APPEND_SLASH= False
-<<<<<<< HEAD
 
 MEDIA_ROOT='./viapublica_app/'
 MEDIA_URL='http://localhost:8000/'
-=======
->>>>>>> fbcd2c59eab4af3ca64c6e6a0fb9229d50a3726a

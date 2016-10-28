@@ -7,13 +7,10 @@ class Reclamo(models.Model):
     nombre = models.CharField(max_length=200)
     apellido = models.CharField(max_length=200)
     dni = models.IntegerField()
-    correo = models.EmailField()
-    telefono = models.CharField(max_length=20)
-    descripcion = models.TextField()
-<<<<<<< HEAD
-    image = models.ImageField(upload_to = 'static/uploads/reclamos/', null=True, blank=True)
-=======
->>>>>>> fbcd2c59eab4af3ca64c6e6a0fb9229d50a3726a
+    correo = models.EmailField(null=True, blank=True)
+    telefono = models.CharField(max_length=20, null=True, blank=True)
+    descripcion = models.TextField(null=True, blank=True)
+    imagen = models.ImageField(upload_to = 'static/uploads/reclamos/', null=True, blank=True)
     latitud = models.CharField(max_length=200, null=True, blank=True)
     longitud = models.CharField(max_length=200, null=True, blank=True)
 

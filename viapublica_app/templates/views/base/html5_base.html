@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+<head>
+	<!-- Titulo del sitio y charset -->
+	<title>Via Publica</title>
+	<meta name="viewport" content="initial-scale=1.0">
+	<meta charset="utf-8">
+
+	<!-- Boostrap and custom styles -->
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+<body>
+  {% block body %}
+  {% endblock %}
+
+	<!-- Cargo scripts de librerias externas -->
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<!-- Cargo mi script -->
+	<script src="/static/js/viapublica.js"></script>
+	<!-- Cargo la API de Google Maps -->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDm2jizvL_4UbjbCENKv53tIxKsa9H8-o"></script>
+</body>
+</html>

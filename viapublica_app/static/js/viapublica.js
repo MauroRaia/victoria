@@ -3,7 +3,7 @@ $(function(){
   $(document).on('click', function(e){
         $(".lat").html(window.google.maps.lat);
         $(".lng").html(window.google.maps.lng);
-  })
+  });
 
 function initMap() {
   var myLatlng = new google.maps.LatLng(-34.7660894,-58.2112031); //coordenadas de Berazategui
@@ -28,20 +28,14 @@ function placeMarker(location,map) {
     position: location,
     animation:google.maps.Animation.DROP,
     icon:'../static/imagenes/icono-mapa.png', //icono de mapa
-    map: map })
+    map: map });
   //console.log();
   //infowindow.open(map,marker);
   window.google.maps.lat = marker.position.lat();
   window.google.maps.lng = marker.position.lng();
-<<<<<<< HEAD
   $('#reclamo_alta input[name=latitud]').val(marker.position.lat());
   $('#reclamo_alta input[name=longitud]').val(marker.position.lng());
-=======
-  document.getElementsByClassName('lati').value = marker.position.lat();
-  document.getElementsByClassName('long').value = marker.position.lng();
->>>>>>> fbcd2c59eab4af3ca64c6e6a0fb9229d50a3726a
   }
-
 }
 
 google.maps.event.addDomListener(window, 'load', initMap);

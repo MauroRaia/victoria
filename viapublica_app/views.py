@@ -17,12 +17,6 @@ def reclamo_alta(request):
             form = formulario.save(commit=False)
             form.latitud = request.POST['latitud']
             form.logitud = request.POST['longitud']
-<<<<<<< HEAD
             form.save()
             return render( request,'views/partials/reclamo_alta.html',{})
     return render( request,'views/partials/error.html',{})
-=======
-	    m.save()
-            form.save()
-            return render( request,'views/partials/reclamo_alta.html',{})
->>>>>>> fbcd2c59eab4af3ca64c6e6a0fb9229d50a3726a
