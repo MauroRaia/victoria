@@ -3,10 +3,53 @@ html, body {
 	margin: 0;
 	padding: 0;
 }
+
+.main-content {
+	padding: 30px;
+}
+
 #map {
 	height: 100%;
 }
 #map-canvas{
 	width: 100%;
 	height: 560px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	background-image: -webkit-linear-gradient(top, #3c3c3c 0, #222 100%);
+	background-image: -o-linear-gradient(top, #3c3c3c 0, #222 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#3c3c3c), to(#222));
+	background-image: linear-gradient(to bottom, #3c3c3c 0, #222 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ff3c3c3c', endColorstr='#ff222222', GradientType=0);
+	filter: progid: DXImageTransform.Microsoft.gradient(enabled=false);
+	background-repeat: repeat-x;
+	border-radius: 4px;
+
+	color: #CFCFCF;
+	font-size: 18px;
+}
+
+.footer .container {
+	width: auto;
+	padding: 13px 15px;
+	text-align: center;
+}
+
+.footer .authors {
+	display: inline-block;
+}
+.footer .authors li {
+	display: inline-block;
+}
+.footer .authors li:before {
+	content: ' - ';
+}
+.footer .authors li:nth-child(1):before {
+	content: '';
 }

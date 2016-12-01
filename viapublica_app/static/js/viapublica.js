@@ -12,15 +12,23 @@ $(function(){
     };
     // Me guardo el mapa
     var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    var geocoder = new google.maps.Geocoder;
+    var infowindow = new google.maps.InfoWindow;
     // Acá voy a mantener el último marker agregado, para solo tener uno
     var lastMarker = null;
 
     // Agregar una escucha al click sobre el mapa
     google.maps.event.addListener(map, 'click', function(event) {
-      placeMarker(event.latLng,map);
+      geocoder.geocode({'location': event.latLng}, function(results, status) {
+        if (status === google.maps.GeocoderStatus.OK && results && results[1]) {
+          placeMarker(map, event.latLng, results[1].formatted_address);
+        } else {
+          placeMarker(map, event.latLng, 'No se pudo determinar la dirección');
+        }
+      });
     });
 
-    function placeMarker(location,map) {
+    function placeMarker(map, location, address) {
       // Borrar el marker anterior si lo hubiera
       if (lastMarker) {
         lastMarker.setMap(null);
@@ -31,12 +39,14 @@ $(function(){
         animation:google.maps.Animation.DROP,
         icon:'../static/imagenes/icono-mapa.png', //icono de mapa
         map: map });
+      infowindow.setContent(address);
+      infowindow.open(map, lastMarker);
       // Guardar las coordenadas del marker en los campos ocultos del formulario
       $('#reclamo_alta input[name=latitud]').val(lastMarker.position.lat());
       $('#reclamo_alta input[name=longitud]').val(lastMarker.position.lng());
     }
   }
-  
+
   // Cuando se carga el sitio completamente, entonces se inicializa el mapa
   google.maps.event.addDomListener(window, 'load', initMap);
 });
