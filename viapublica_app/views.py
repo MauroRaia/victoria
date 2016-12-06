@@ -27,3 +27,11 @@ def reclamo_alta(request):
             request.session['error'] = 'Su reclamo no ha podido ser procesado.'
     # Si hubo algun error, muestro la pagina con el mismo formulario que me llego, y un mensaje de error
     return redirect('/viapublica/')
+
+def vista_reclamos(request):
+    reclamos = Reclamo.objects.all()
+    return render(request, 'views/vista_reclamos.html', {'reclamos':reclamos})
+
+def classify(request):
+    reclamos = Reclamo.objects.all()
+    return render(request, 'views/classify.html', {'reclamos':reclamos})

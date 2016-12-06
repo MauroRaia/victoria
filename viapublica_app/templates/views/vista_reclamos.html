@@ -1,0 +1,15 @@
+{% extends 'views/base/base.html' %}
+{% load widget_tweaks %}
+{% load bootstrap %}
+
+{% block left %}
+{% for r in reclamos %}
+<br></br>
+  {{r}}
+
+{% endfor %}
+{% endblock %}
+
+{% block right %}
+  <div id="map-canvas"></div>
+{% endblock %}

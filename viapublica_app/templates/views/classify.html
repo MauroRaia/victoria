@@ -1,0 +1,61 @@
+{% load widget_tweaks %}
+{% load bootstrap %}
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+<script>
+function show(image)
+{
+	vista=document.getElementById(image).style.display;
+	if (vista=='none')
+		vista='block';
+	else
+		vista='none';
+
+	document.getElementById(image).style.display = vista;
+}
+</script>
+
+<head>
+	<!-- Titulo del sitio y charset -->
+	<title>Via Publica</title>
+	<meta name="viewport" content="initial-scale=1.0">
+	<meta charset="utf-8">
+
+	<!-- Boostrap and custom styles -->
+	<link rel="stylesheet" href="/static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="/static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+
+</head>
+
+{% include 'views/partials/navbar.html' %}
+
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+  {% for r in reclamos %}
+  <table class="table table-hover">
+    <td class="warning">
+      {{r}}
+      <br></br>
+        <a href="#" onclick="show('imagen'); return false;">Imagen</a>
+            <div id="imagen" style="display: none;">
+              <img src="{{r.imagen.image}}">
+            </div>
+    </td>
+  </table>
+
+  {% endfor %}
+</div>
+<div class="col-xs-12 col-sm-6 col-md-6 col-md-6">
+  {% for r in reclamos %}
+  <table class="table table-hover">
+    <td class="warning">{{r}}</td>
+  </table>
+
+  {% endfor %}
+</div>
+
+</html>
