@@ -13,6 +13,14 @@ class Reclamo(models.Model):
     imagen = models.ImageField(upload_to = 'static/uploads/reclamos/', null=True, blank=True)
     latitud = models.CharField(max_length=200, null=True, blank=True)
     longitud = models.CharField(max_length=200, null=True, blank=True)
+    seccion = models.ForeignKey("Seccion", null=True, blank=True)
 
     def __str__(self):
-        return "(" + self.nombre + " " + self.apellido + ") " + self.descripcion
+        return "(" + self.nombre + " " + self.apellido + ")" + self.descripcion
+
+class Seccion(models.Model):
+    nombre = models.CharField(max_length=100)
+    director = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre + " (" + self.director + ")"

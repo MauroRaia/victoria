@@ -6,7 +6,7 @@ class ReclamoForm(forms.ModelForm):
 
     class Meta:
         model = Reclamo
-        fields = '__all__'
+        fields = ['nombre', 'apellido', 'dni', 'correo', 'telefono', 'descripcion', 'imagen', 'latitud', 'longitud', 'seccion']
         widgets = {
             'latitud': forms.HiddenInput(),
             'longitud': forms.HiddenInput()
